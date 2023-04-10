@@ -12,3 +12,4 @@ elif  n > 20:
     print ("Not Weird")
 else:
     pass               
+

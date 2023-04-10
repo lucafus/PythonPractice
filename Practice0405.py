@@ -1,2 +1,4 @@
-for i in range(1,20):
-    print(i**2)
+if 2 == 2:
+    print("Yep")
+else:
+    print("Not true")
