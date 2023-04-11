@@ -2,6 +2,13 @@ import boto3
 
 s3 = boto3.client('s3')
 
-response = client.delete_bucket(
-    Bucket='cf-templates-na5to0vok5g9-us-east-1',
-    )
+bucket_name="staticweb1996"
+
+response = s3.list_objects(
+    Bucket=bucket_name
+)
+
+contents = response['Contents']
+
+for content in contents:
+    print(content['Key'])
