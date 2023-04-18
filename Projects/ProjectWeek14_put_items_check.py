@@ -137,7 +137,8 @@ print("Put Items succeded")
 
 data1 = table.scan()
 
-print(data1, sep='\n')
+for item in data1['Items']:
+    print(item)
 
 
 
