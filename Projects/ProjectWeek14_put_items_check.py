@@ -4,11 +4,11 @@ import boto3
 
 dynamodb = boto3.resource('dynamodb', region_name = 'us-east-2')
 
-#Select the required table
+#Select the table
 
 table = dynamodb.Table('Video_Games')
 
-#Add 10 items into the table
+#Add 10 items into the table using the put_item method
 
 table.put_item(
     Item={

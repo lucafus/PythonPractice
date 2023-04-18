@@ -4,36 +4,40 @@ import boto3
 
 dynamodb = boto3.resource('dynamodb', region_name= 'us-east-2')
 
-#Create a DynamoDB table
+#Call the create_table method
 
-
-table = dynamodb.create_table(
+table = dynamodb.create_table( 
+    
     TableName= 'Video_Games',
-    KeySchema=[
+    
+    AttributeDefinitions=[ 
+            
+                {
+            
+            'AttributeName': 'title', # Specify the name of the title attribute
+            'AttributeType' : 'S'     # Specify that the title attribute is a string
+            
+            
+                    }
+    ],
+    
+    
+    KeySchema=[ 
             
                 {   
             
-            'AttributeName': 'title',
-            'KeyType' : 'HASH'
+            'AttributeName': 'title', # Specify that the title attribute will be used as the partition key
+            'KeyType' : 'HASH'        # Specify that the title attribute will be used as the hash key
                         
                     }
     ],
     
     
-    AttributeDefinitions=[
-            
-                {
-            
-            'AttributeName': 'title',
-            'AttributeType' : 'S'
-            
-            
-                    }
-    ],
+    
                     
     ProvisionedThroughput={
-        'ReadCapacityUnits': 10,
-        'WriteCapacityUnits' : 10
+        'ReadCapacityUnits': 1,
+        'WriteCapacityUnits' : 1
         
         
     }        
