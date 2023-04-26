@@ -1,3 +1,11 @@
-from datetime import datetime
-time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-print('The actual time and date when this SQS queue was created was: ' + time)
+# Import the Boto3 library
+import boto3
+
+# Connect to the SQS
+sqs = boto3.resource('sqs')
+
+# Create the queue with its name
+queue = sqs.create_queue(QueueName='My_Queue')
+
+# Print the URL of the queue
+print(queue)
